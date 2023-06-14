@@ -7,27 +7,31 @@ function form_toogle(){
     let form = document.getElementById('form');
     let cancel = document.getElementById('cancel');
     let send = document.getElementById('send');
-    let checked = false;
     btn.addEventListener('click', () => {
-        checked = true;
         form.classList.add('form_da');
     }) 
     cancel.addEventListener('click',() => {
-        checked = false;
         console.log("cancel");
         form.classList.remove('form_da');
     })
     send.addEventListener('click', () => {
-        info()
-        form.classList.remove('form_da');       
+        form.classList.remove('form_da');
+        newBook();
     })
 }
 
-function info(){
+function Book(title, autor, pages){
+    this.title = title,
+    this.autor = autor,
+    this.pages = pages
+}
+
+function newBook(){
     let title = document.getElementById("title").value;
     let autor = document.getElementById("autor").value;
     let pages = document.getElementById("pages").value;
-    console.log(title, autor, pages);
+    let book = new Book(title, autor, pages)
+    console.log(book);
 }
 
 form_toogle()
