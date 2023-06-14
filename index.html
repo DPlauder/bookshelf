@@ -14,15 +14,15 @@
     <header class="kopf">
         <h1>Bookshelf</h1>
     </header>
-    <nav class="dazu">   
-        <div class="add_new" data-add="add">
+    <nav class="dazu">
+        <div class="add_new" data-open="checked" id="add_btn">
             <h1>+</h1>
-            
+
         </div>
-        
+
     </nav>
     <section class="container">
-
+<!---
         <div class="buch">
             <h2>Die Zeuginnen</h2>
             <p>Margaret Atwood</p>
@@ -33,19 +33,21 @@
                 <div class="btn" data-action="read"><i class="fa-solid fa-book-open-reader"></i></div>
             </div>
         </div>
+-->
     </section>
-    <div class="form">
-        <h2>Buch hinzufügen</h2>
-        <input class="felder" type="text" placeholder="Titel">
-        <input class="felder" type="text" placeholder="Autor">
-        <input class="felder" type="text" placeholder="Seiten">
-        <div class="check"><span class="read">gelesen?</span><input type="checkbox" class="box"></div>
-        <div class="btn_form" >
-            <div class="btn_add" data-add="cancel">Cancel</div>
-            <div class="btn_add" data-add="send">Senden</div>
-        </div>
-    </div>
 
+        <div class="form" id="form">
+            <h2>Buch hinzufügen</h2>
+            <input class="felder" type="text" placeholder="Titel" id="title">
+            <input class="felder" type="text" placeholder="Autor" id="autor">
+            <input class="felder" type="text" placeholder="Seiten" id="pages">
+            <div class="check"><span class="read">gelesen?</span><input type="checkbox" class="box"></div>
+            <div class="container_form">
+                <div class="btn_form" id="cancel">Cancel</div>
+                <div class="btn_form" id="send">Senden</div>
+            </div>
+        </div>
+    
     <script src="main.js"></script>
 
 </body>

@@ -87,13 +87,15 @@
     display: flex;
     flex-direction: column;
 
-
     background-color: #165552;
     color: white;
 
     text-align: center;
 }
-
+.form_da{
+    opacity: 1;
+    pointer-events: all;
+}
 .felder{
     margin-top: 10px;
     font-size: 2em;
@@ -112,11 +114,11 @@
 .box {
     font-size: 2em;
 }
-.btn_form {
+.container_form {
     display: flex;
     justify-content:center;
 }
-.btn_add {
+.btn_form {
     padding: 10px;
     margin-left: 10px;
     margin-right: 10px;
