@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <title>Bookshelf</title>
+    <script src="https://kit.fontawesome.com/4206b15dbb.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <header class="kopf">
+        <h1>Bookshelf</h1>
+    </header>
+    <nav class="dazu">   
+        <div class="add_new" data-add="add">
+            <h1>+</h1>
+            
+        </div>
+        
+    </nav>
+    <section class="container">
+
+        <div class="buch">
+            <h2>Die Zeuginnen</h2>
+            <p>Margaret Atwood</p>
+            <p>Pages: 578</p>
+            <p>Read: true</p>
+            <div class="knopf">
+                <div class="btn" data-action="delete"><i class="fa-regular fa-trash-can"></i></div>
+                <div class="btn" data-action="read"><i class="fa-solid fa-book-open-reader"></i></div>
+            </div>
+        </div>
+    </section>
+    <div class="form">
+        <h2>Buch hinzufügen</h2>
+        <input class="felder" type="text" placeholder="Titel">
+        <input class="felder" type="text" placeholder="Autor">
+        <input class="felder" type="text" placeholder="Seiten">
+        <div class="check"><span class="read">gelesen?</span><input type="checkbox" class="box"></div>
+        <div class="btn_form" >
+            <div class="btn_add" data-add="cancel">Cancel</div>
+            <div class="btn_add" data-add="send">Senden</div>
+        </div>
+    </div>
+
+    <script src="main.js"></script>
+
+</body>
+
+</html>
