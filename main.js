@@ -30,8 +30,31 @@ function newBook(){
     let title = document.getElementById("title").value;
     let autor = document.getElementById("autor").value;
     let pages = document.getElementById("pages").value;
-    let book = new Book(title, autor, pages)
-    console.log(book);
+    let book = new Book(title, autor, pages);
+    addBook(book);
+}
+
+function addBook(book){
+    let shelf = document.getElementById('shelf');
+    let entry = document.createElement('div');
+    entry.classList.add('buch');
+
+    let entry_title = document.createElement('h2')
+    entry_title.textContent = title.value;
+    entry.appendChild(entry_title);
+
+    let entry_autor = document.createElement('p')
+    entry_autor.textContent = autor.value;
+    entry.appendChild(entry_autor);
+
+    let entry_pages = document.createElement('p')
+    entry_pages.textContent = pages.value;
+    entry.appendChild(entry_pages);
+    
+
+    shelf.appendChild(entry);
+    
 }
 
 form_toogle()
+
