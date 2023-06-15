@@ -22,7 +22,7 @@
 
     </nav>
     <section class="container" id="shelf">
-
+<!---
         <div class="buch">
             <h2 class="title">Die Zeuginnen</h2>
             <p class="autor">Margaret Atwood</p>
@@ -33,8 +33,7 @@
                 <div class="btn"><i class="fa-solid fa-book-open-reader"></i></div>
             </div>
         </div>
-
-
+-->
     </section>
 
         <div class="form" id="form">
@@ -43,9 +42,9 @@
             <input class="felder" type="text" placeholder="Autor" id="autor">
             <input class="felder" type="text" placeholder="Seiten" id="pages">
             <div class="check"><span class="read">gelesen?</span><input type="checkbox" class="box" id="box"></div>
-            <div class="container_form">
-                <div class="btn_form" id="cancel">Cancel</div>
-                <div class="btn_form" id="send">Senden</div>
+            <div class="container_form" id="btns_form">
+                <div class="btn_form" id="cancel" data-action="delete">Cancel</div>
+                <div class="btn_form" id="send" data-action="send">Senden</div>
             </div>
         </div>
  
