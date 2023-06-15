@@ -52,11 +52,12 @@ function addBook() {
     entry.appendChild(entry_pages);
 
     let entry_read = document.createElement('p')
+    entry_read.id = 'read_status';
     let check = check_read();
     if (check === true) {
-        entry_read.textContent = "Read: Yes"
+        entry_read.textContent = "Read: Yes";
     } else {
-        entry_read.textContent = "Read: No"
+        entry_read.textContent = "Read: No";
     }
     entry.appendChild(entry_read)
     shelf.appendChild(entry);
@@ -72,7 +73,6 @@ function check_read() {
     }
     return check;
 }
-
 function add_btns() {
     let btnsContainer = document.createElement('div')
     btnsContainer.classList.add('knopf');
@@ -86,35 +86,30 @@ function add_btns() {
     read.classList.add('btn');
     read.textContent = "O";
     btnsContainer.appendChild(read);
-
     return btnsContainer
-
 }
-
-
-
-
-
 function change_book(rootElement, event) {
-
     rootElement.addEventListener(event, (e) => {
         console.log(e);  
         let targetElement = e.target;
-
-
         while (targetElement != null) {
             if (targetElement.textContent === 'X') {
                 targetElement.parentElement.parentElement.remove();
-            }
-
-
-            targetElement = targetElement.parentElement;
-            console.log(targetElement);
-            
-        }   
-
-
-    }, true)
+            }           
+            if (targetElement.textContent === 'O')  {
+                let change = document.getElementById('read_status');
+                console.log(change);
+                if (change.textContent === 'Read: Yes'){
+                    change.textContent = "Read: No"
+                    console.log('yes');
+                } else {
+                    change.textContent = "Read: Yes"
+                    console.log('no');
+                }
+            } 
+            targetElement = targetElement.parentElement;      
+        }       
+    },true)
 
 }
 
