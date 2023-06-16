@@ -33,11 +33,17 @@ function form_toogle() {
     })
 }
 function resetInputs(){
-    let title = document.getElementById("title").textContent;
-    let autor = document.getElementById("autor").textContent;
-    let pages = document.getElementById("pages").textContent;
+    let title = document.getElementById("title");
+    let autor = document.getElementById("autor");
+    let pages = document.getElementById("pages");
+    let checkbox = document.getElementById('box')
 
-    console.log(title);
+    console.log('title', title);
+
+    title.value = "";
+    autor.value = "";
+    pages.value = "";
+    checkbox.checked = false; 
 }
 
 function Book(title, autor, pages) {
@@ -51,7 +57,6 @@ function addBook() {
     let shelf = document.getElementById('shelf');
     let entry = document.createElement('div');
     entry.classList.add('buch');
-    console.log(title);
 
     let entry_title = document.createElement('h2')
     entry_title.textContent = title.value;
@@ -111,13 +116,10 @@ function change_book(rootElement, event) {
             }
             if (targetElement.textContent === 'O') {
                 let change = targetElement.parentElement.previousElementSibling;
-
                 if (change.textContent === 'Read: Yes') {
                     change.textContent = "Read: No";
-                    console.log('yes');
                 } else {
                     change.textContent = "Read: Yes";
-                    console.log('no');
                 }
             }
             targetElement = targetElement.parentElement;
