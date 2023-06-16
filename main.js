@@ -16,28 +16,42 @@ function form_toogle() {
     cancel.addEventListener('click', () => {
         console.log("cancel");
         form.classList.remove('form_da');
+        resetInputs()
     })
     send.addEventListener('click', () => {
-        form.classList.remove('form_da');
-        newBook();
+        let title = document.getElementById("title").value;
+        let autor = document.getElementById("autor").value;
+        let pages = document.getElementById("pages").value;
+        
+        if(title === '' || autor === '' || pages === ''){
+            alert("Input incomplete");
+        } else {
+            form.classList.remove('form_da');
+            let book = new Book(title, autor, pages);
+            resetInputs()
+        }
     })
 }
+function resetInputs(){
+    let title = document.getElementById("title").textContent;
+    let autor = document.getElementById("autor").textContent;
+    let pages = document.getElementById("pages").textContent;
+
+    console.log(title);
+}
+
 function Book(title, autor, pages) {
     this.title = title,
-        this.autor = autor,
-        this.pages = pages
+    this.autor = autor,
+    this.pages = pages
     addBook();
 }
-function newBook() {
-    let title = document.getElementById("title").value;
-    let autor = document.getElementById("autor").value;
-    let pages = document.getElementById("pages").value;
-    let book = new Book(title, autor, pages);
-}
+
 function addBook() {
     let shelf = document.getElementById('shelf');
     let entry = document.createElement('div');
     entry.classList.add('buch');
+    console.log(title);
 
     let entry_title = document.createElement('h2')
     entry_title.textContent = title.value;
@@ -90,27 +104,25 @@ function add_btns() {
 }
 function change_book(rootElement, event) {
     rootElement.addEventListener(event, (e) => {
-        console.log(e);  
         let targetElement = e.target;
         while (targetElement != null) {
             if (targetElement.textContent === 'X') {
                 targetElement.parentElement.parentElement.remove();
-            }           
-            if (targetElement.textContent === 'O')  {
-                let change = document.getElementById('read_status');
-                console.log(change);
-                if (change.textContent === 'Read: Yes'){
-                    change.textContent = "Read: No"
+            }
+            if (targetElement.textContent === 'O') {
+                let change = targetElement.parentElement.previousElementSibling;
+
+                if (change.textContent === 'Read: Yes') {
+                    change.textContent = "Read: No";
                     console.log('yes');
                 } else {
-                    change.textContent = "Read: Yes"
+                    change.textContent = "Read: Yes";
                     console.log('no');
                 }
-            } 
-            targetElement = targetElement.parentElement;      
-        }       
-    },true)
-
+            }
+            targetElement = targetElement.parentElement;
+        }
+    }, true)
 }
 
 init()
