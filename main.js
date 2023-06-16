@@ -1,10 +1,13 @@
 "use strict";
 
+let books = [];
+
 function init() {
     form_toogle();
     change_book(shelf, 'click');
+    checkStorage();
 }
-
+//+-------------------------Form öffnet + Input Abfrage + Reset Input---------------------------------------------------------------------
 function form_toogle() {
     let btn = document.getElementById('add_btn');
     let form = document.getElementById('form');
@@ -28,6 +31,7 @@ function form_toogle() {
         } else {
             form.classList.remove('form_da');
             let book = new Book(title, autor, pages);
+            addStorage()
             resetInputs()
         }
     })
@@ -37,23 +41,23 @@ function resetInputs(){
     let autor = document.getElementById("autor");
     let pages = document.getElementById("pages");
     let checkbox = document.getElementById('box')
-
-    console.log('title', title);
-
     title.value = "";
     autor.value = "";
     pages.value = "";
     checkbox.checked = false; 
 }
-
+//---------------------------------------Konstruktor Buch erstellen------------------------------------------------------------------------
 function Book(title, autor, pages) {
     this.title = title,
     this.autor = autor,
     this.pages = pages
+    let book = [title, autor, pages];
+    books.push(book);
     addBook();
+    resetInputs()
 }
-
-function addBook() {
+//---------------------------------------Buch wird gerendert für Overlay-----------------------------------------------------------------------------------
+function addBook(lib) {
     let shelf = document.getElementById('shelf');
     let entry = document.createElement('div');
     entry.classList.add('buch');
@@ -79,10 +83,13 @@ function addBook() {
         entry_read.textContent = "Read: No";
     }
     entry.appendChild(entry_read)
-    shelf.appendChild(entry);
-
+    
     let btns = add_btns()
     entry.appendChild(btns);
+    
+    shelf.appendChild(entry);
+
+
 }
 function check_read() {
     let checkbox = document.getElementById('box');
@@ -107,6 +114,7 @@ function add_btns() {
     btnsContainer.appendChild(read);
     return btnsContainer
 }
+//-------------------------------------Löschen/Ändern Abfrage für Buch------------------------------------------------------------------------------------
 function change_book(rootElement, event) {
     rootElement.addEventListener(event, (e) => {
         let targetElement = e.target;
@@ -125,6 +133,26 @@ function change_book(rootElement, event) {
             targetElement = targetElement.parentElement;
         }
     }, true)
+}
+//-----------------------------Storage---------------------------------------------------------------------------------------------------------------------
+function addStorage(){
+    let library = [localStorage.setItem('library', JSON.stringify(books))];
+
+    console.log(books);
+}
+
+function checkStorage(){
+    let lib = JSON.parse(localStorage.getItem('library'));
+    let title = document.getElementById("title");
+    let autor = document.getElementById("autor");
+    let pages = document.getElementById("pages");
+    lib.forEach(element =>{
+        console.log(element);
+        title.value = element[0];
+        autor.value = element[1];
+        pages.value = element[2];
+        let book = new Book(title, autor, pages);
+    });     
 }
 
 init()
