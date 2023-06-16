@@ -146,13 +146,18 @@ function checkStorage(){
     let title = document.getElementById("title");
     let autor = document.getElementById("autor");
     let pages = document.getElementById("pages");
-    lib.forEach(element =>{
-        console.log(element);
-        title.value = element[0];
-        autor.value = element[1];
-        pages.value = element[2];
-        let book = new Book(title, autor, pages);
-    });     
+
+    if (!lib == ''){
+            lib.forEach(element =>{
+            title.value = element[0];
+            let title1 = element[0];
+            autor.value = element[1];
+            let autor1 = element[1];
+            pages.value = element[2];
+            let pages1 = element[2];
+            let book = new Book(title1, autor1, pages1);
+        });    
+     }
 }
 
 init()

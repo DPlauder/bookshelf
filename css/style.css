@@ -85,10 +85,10 @@
     pointer-events: none;
     position: absolute;
     top: 15vh;
-    left: 20%;
-    right: 20%;
+    left: 25%;
+    right: 25%;
 
-    width: 60%;
+    width: 50%;
     padding: 20px;
 
     display: flex;
@@ -98,13 +98,16 @@
     color: white;
 
     text-align: center;
+
+    border: 2px solid;
+    border-color: #b0c6f2;
 }
 .form_da{
     opacity: 1;
     pointer-events: all;
 }
 .felder{
-    margin-top: 10px;
+    margin-top: 20px;
     font-size: 2em;
 }
 
@@ -112,7 +115,7 @@
     display: flex;
     justify-content: left;
     font-size: 1.3em;
-    margin-top: 10px;
+    margin-top: 20px;
     padding-right: 20px;
 }
 .read {
@@ -124,6 +127,7 @@
 .container_form {
     display: flex;
     justify-content:center;
+    margin-top: 100px;
 }
 .btn_form {
     padding: 10px;
