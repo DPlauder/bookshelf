@@ -139,7 +139,7 @@
 }
 /*-------------------------background---------------------------------------------------------------------*/
 .kopf {
-    --s: 85px; /* control the size */
+    --s: 45px; /* control the size */
     --c1: #b9b9b9;
     --c2: #dcdcdc;
     --c3: #fafafa;
@@ -154,4 +154,3 @@
     background-size: var(--s) calc(var(--s)/0.577);
     /* 0.577=tan(30deg)*/
   }
-  
