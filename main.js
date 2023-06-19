@@ -74,6 +74,7 @@ function renderBook() {
     books.forEach(book => {      
         let entry = document.createElement('div');
         entry.classList.add('buch');
+        entry.setAttribute('data-id', book.id);
 
         let entry_title = document.createElement('h2')
         entry_title.textContent = book.title;
