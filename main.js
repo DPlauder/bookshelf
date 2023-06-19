@@ -8,7 +8,7 @@ function init() {
     form_toogle();
     change_book(shelf, 'click');
 }
-//+-------------------------Form öffnet + Input Abfrage + Reset Input---------------------------------------------------------------------
+//-------------------------Form öffnet + Input Abfrage + Reset Input---------------------------------------------------------------------
 function form_toogle() {
     let btn = document.getElementById('add_btn');
     let form = document.getElementById('form');
@@ -127,7 +127,9 @@ function change_book(rootElement, event) {
         while (targetElement != null) {
             if (targetElement.textContent === 'X') {
                 targetElement.parentElement.parentElement.remove();
-                console.log(targetElement);
+
+                let id = targetElement.parentElement.parentElement.dataset.id;
+                books.splice(id, 1);
             }
             if (targetElement.textContent === 'O') {
                 let change = targetElement.parentElement.previousElementSibling;
@@ -138,17 +140,19 @@ function change_book(rootElement, event) {
                 }
             }
             targetElement = targetElement.parentElement;
+            addStorage();
         }
     }, true)
 }
 //-----------------------------Storage---------------------------------------------------------------------------------------------------------------------
 function addStorage() {
    localStorage.setItem('library', JSON.stringify(books));
+   //bookId = 0;
 }
 function checkStorage() {
     if(localStorage.length > 0) {
         books = JSON.parse(localStorage.getItem('library'));
-        bookId = books.length
+        bookId = books.length;
         renderBook();
     }else{
         books = [];

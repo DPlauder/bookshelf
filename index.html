@@ -8,21 +8,26 @@
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <title>Bookshelf</title>
     <script src="https://kit.fontawesome.com/4206b15dbb.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gayathri:wght@100;400;700&family=Red+Hat+Display&display=swap" rel="stylesheet">
 </head>
 
 <body>
     <header class="kopf">
         <h1>BOOKSHELF</h1>
     </header>
-    <aside class="dazu"> 
-        <div class="add_new" data-open="checked" id="add_btn">
-            <h1>+</h1>
 
-        </div>
+    <main class="main">
+        <aside class="dazu">
+            <div class="add_new" data-open="checked" id="add_btn">
+                <h1>+</h1>
 
-    </aside>
-    <section class="container" id="shelf">
-<!---
+            </div>
+
+        </aside>
+        <section class="container" id="shelf">
+            <!---
         <div class="buch">
             <h2 class="title">Die Zeuginnen</h2>
             <p class="autor">Margaret Atwood</p>
@@ -34,20 +39,21 @@
             </div>
         </div>
 -->
-    </section>
+        </section>
+    </main>
 
-        <div class="form" id="form">
-            <h2>Buch hinzufügen</h2>
-            <input class="felder" type="text" placeholder="Titel" id="title">
-            <input class="felder" type="text" placeholder="Autor" id="autor">
-            <input class="felder" type="number" placeholder="Seiten" id="pages">
-            <div class="check"><span class="read">gelesen?</span><input type="checkbox" class="box" id="box"></div>
-            <div class="container_form" id="btns_form">
-                <div class="btn_form" id="cancel" data-action="delete">Cancel</div>
-                <div class="btn_form" id="send" data-action="send">Senden</div>
-            </div>
+    <div class="form" id="form">
+        <h2>Buch hinzufügen</h2>
+        <input class="felder" type="text" placeholder="Titel" id="title">
+        <input class="felder" type="text" placeholder="Autor" id="autor">
+        <input class="felder" type="number" placeholder="Seiten" id="pages">
+        <div class="check"><span class="read">gelesen?</span><input type="checkbox" class="box" id="box"></div>
+        <div class="container_form" id="btns_form">
+            <div class="btn_form" id="cancel" data-action="delete">Cancel</div>
+            <div class="btn_form" id="send" data-action="send">Senden</div>
         </div>
- 
+    </div>
+
     <script src="main.js"></script>
 
 </body>

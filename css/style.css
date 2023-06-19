@@ -5,8 +5,9 @@
 
 .kopf {
     height: 140px;
-    border-bottom: 3px solid;
+    border-bottom: 5px solid;
     border-color: #b0c6f2;
+    background-color: white;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -16,13 +17,19 @@
     font-size: 2.5em;
     color: blue;
 }
+
+.main {
+    background-color: #4a4b4d3a;
+    height: calc(100vh - 145px);
+    display: grid;
+    grid-template-columns: 9fr 1fr;
+}
 /*----------------------------------------------------------------plus button--------------------------------------------------------*/
 .dazu {
     display: flex;
-    justify-content: end;
-    align-items: center;
-    margin-top: 30px;
+    padding-top: 30px;
     margin-right: 100px;
+    justify-content: center;
 }
 .add_new {
     display: flex;
@@ -34,9 +41,15 @@
     border-color: #393a3c;
     border-radius:100%;
     font-size: 2em;
+
+    grid-row: 2;
+}
+.add_new:hover {
+    scale: 105%;
 }
 /*----------------------------------------------------------------Buch Anzeige--------------------------------------------------------*/
 .container {
+    grid-row: 1;
     display: flex;
     width: 100%;
     height: auto;
@@ -45,20 +58,31 @@
 }
 /*----------------------------------------------------------------Einzelne Bücher--------------------------------------------------------*/
 .buch {
-    display: flex;
-    flex-direction: column;
 
-    width: 350px;
-    border: 10px solid;
-    border-color: #393a3c;
-    border-radius: 15px;
+
+    display: grid;
+
+    width: 250px;
+    height: 500px;
+    border: 10px groove;
+    border-color: #654321;
+    background-color: #65432171;
+    border-radius: 5px;
     padding: 1%;
     margin: 20px;
     font-size: 1.5em;
     line-height: 30px;
+    justify-items: stretch;
+    text-align: center;
+
 }
 .buch h2 {
     padding-bottom: 10px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+.buch p {
+    margin-top: 20px;
+    font-size: 1.2em;
 }
 .knopf {
     margin-top: 20px;
@@ -68,11 +92,13 @@
 
     border-top: 1px solid grey;
 
-
 }
 .btn {
     margin: 20px;
-    font-size: 130%;
+    font-size: 130%;   
+}
+.btn:hover {
+    scale: 110%;
 }
 
 .delete-book {
@@ -101,14 +127,18 @@
 
     border: 2px solid;
     border-color: #b0c6f2;
+
+    animation: ausblenden 0.2s;
 }
 .form_da{
     opacity: 1;
     pointer-events: all;
+    animation: einblenden 0.2s;
 }
 .felder{
     margin-top: 20px;
     font-size: 2em;
+
 }
 
 .check{
@@ -137,12 +167,15 @@
     border: 2px solid;
     border-color: #308580;
 }
+.btn_form:hover {
+    scale: 105%;
+}
 /*-------------------------background---------------------------------------------------------------------*/
 .kopf {
     --s: 45px; /* control the size */
-    --c1: #b9b9b9;
-    --c2: #dcdcdc;
-    --c3: #fafafa;
+    --c1: #b0c6f273;
+    --c2: #dcdcdc41;
+    --c3: #fafafa38;
   
     background:
       conic-gradient(from 75deg,var(--c1)   15deg ,var(--c2) 0 30deg ,#0000 0 180deg,
@@ -154,3 +187,12 @@
     background-size: var(--s) calc(var(--s)/0.577);
     /* 0.577=tan(30deg)*/
   }
+
+  @keyframes einblenden {
+    0%  {scale: 0%}
+    100%    {scale: 100%}
+  }
+@keyframes ausblenden {
+    0%  {scale: 100%}
+    100%    {scale: 0%}
+}
