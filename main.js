@@ -88,8 +88,6 @@ function addBook(lib) {
     entry.appendChild(btns);
     
     shelf.appendChild(entry);
-
-
 }
 function check_read() {
     let checkbox = document.getElementById('box');
@@ -137,16 +135,12 @@ function change_book(rootElement, event) {
 //-----------------------------Storage---------------------------------------------------------------------------------------------------------------------
 function addStorage(){
     let library = [localStorage.setItem('library', JSON.stringify(books))];
-
-    console.log(books);
 }
-
 function checkStorage(){
     let lib = JSON.parse(localStorage.getItem('library'));
     let title = document.getElementById("title");
     let autor = document.getElementById("autor");
     let pages = document.getElementById("pages");
-
     if (!lib == ''){
             lib.forEach(element =>{
             title.value = element[0];
