@@ -29,8 +29,9 @@ function form_toogle() {
         if (title === '' || autor === '' || pages === '') {
             alert("Input incomplete");
         } else {
-            form.classList.remove('form_da');
-            let book = new Book(title, autor, pages);
+            form.classList.remove('form_da')
+            let info = check_read()
+            let book = new Book(title, autor, pages, info);
             books.push(book);
             addStorage()
             renderBook();
@@ -49,15 +50,16 @@ function resetInputs() {
     checkbox.checked = false;
 }
 //---------------------------------------Konstruktor Buch erstellen------------------------------------------------------------------------
-function Book(title, autor, pages) {
+function Book(title, autor, pages, info) {
     this.title = title,
         this.autor = autor,
         this.pages = pages,
-        this.info = check_read(),
+        this.info = info,
         this.id = createId();
 }
 function createId() {
-    return bookId++
+    console.log(localStorage.length);
+    return bookId++;
 }
 function check_read() {
     let checkbox = document.getElementById('box');
@@ -127,7 +129,6 @@ function change_book(rootElement, event) {
         while (targetElement != null) {
             if (targetElement.textContent === 'X') {
                 targetElement.parentElement.parentElement.remove();
-
                 let id = targetElement.parentElement.parentElement.dataset.id;
                 books.splice(id, 1);
             }
@@ -141,6 +142,7 @@ function change_book(rootElement, event) {
             }
             targetElement = targetElement.parentElement;
             addStorage();
+            checkStorage()
         }
     }, true)
 }
@@ -151,8 +153,17 @@ function addStorage() {
 }
 function checkStorage() {
     if(localStorage.length > 0) {
-        books = JSON.parse(localStorage.getItem('library'));
-        bookId = books.length;
+        let storage = JSON.parse(localStorage.getItem('library'));
+        books = [];
+        bookId = 0;
+        storage.forEach(buch => {
+            bookId = books.length;
+            title = buch.title;
+            autor = buch.autor;
+            pages = buch.pages;
+            let book = new Book(title, autor, pages, buch.info);
+            books.push(book);
+        })
         renderBook();
     }else{
         books = [];

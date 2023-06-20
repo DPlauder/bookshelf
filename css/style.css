@@ -20,7 +20,7 @@
 
 .main {
     background-color: #4a4b4d3a;
-    height: calc(100vh - 145px);
+    height: calc(100% - 145px);
     display: grid;
     grid-template-columns: 9fr 1fr;
 }
